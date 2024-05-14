@@ -1,0 +1,42 @@
+\documentclass{article}
+\usepackage{blindtext}
+\usepackage{authblk}
+\usepackage{multicol}
+\usepackage[english]{babel}
+\usepackage{hyperref}
+\usepackage{amsmath, xparse}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{comment}
+\usepackage{import}
+\graphicspath{ {./images/} }
+\usepackage[nottoc]{tocbibind}
+\setlength{\columnsep}{1cm}
+\title{Improving of identifying whether mushrooms are poisonous or edible using EfficientNet B0}
+\author{ Anub, Viktoria, and Harith Elamin \\ Oslomet, Norway}
+\date{May 2024}
+
+\begin{document}
+\maketitle
+
+\begin{multicols}{2}
+\section{Introduction}
+\import{sections/}{Introduction}    
+\section{Abstract}
+\import{sections/}{Abstract}
+\section{Methods}
+\import{sections/}{methods}
+\section{Experiment}
+\import{sections/}{experiment}
+\section{Discussion}
+\import{sections/}{discussion}
+\section{Results}
+\import{sections/}{results}
+\section{Future works}
+\import{sections/}{future-works}
+\section{Conclusion}
+\import{sections/}{conclusion}
+\section{References}
+\import{sections/}{references}
+\end{multicols}
+\end{document}
