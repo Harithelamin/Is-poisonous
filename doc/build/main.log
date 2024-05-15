@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.5.4)  15 MAY 2024 02:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.5.4)  15 MAY 2024 12:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -479,18 +479,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--3
 
 ) (sections/introduction.tex [1
 
-{C:/Users/Harith/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]) (sections/related-work.tex) (sections/methods.tex) (sections/experiment.tex [2]) (sections/discussion.tex) (sections/results.tex
-<figures/classification.PNG, id=65, 534.798pt x 107.80275pt>
+{C:/Users/Harith/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]) (sections/related-work.tex) (sections/methods.tex) (sections/experiment.tex [2]) (sections/discussion.tex) (sections/results.tex [3]
+<figures/classification.PNG, id=69, 534.798pt x 107.80275pt>
 File: figures/classification.PNG Graphic file (type png)
 <use figures/classification.PNG>
-Package pdftex.def Info: figures/classification.PNG  used on input line 6.
+Package pdftex.def Info: figures/classification.PNG  used on input line 13.
 (pdftex.def)             Requested size: 236.01561pt x 47.57645pt.
 
-Overfull \hbox (14.22636pt too wide) in paragraph at lines 6--8
+Overfull \hbox (14.22636pt too wide) in paragraph at lines 13--15
  [] 
  []
 
-) (sections/future-works.tex [3 <./figures/classification.PNG>]) (sections/conclusion.tex) (sections/references.tex) [4] (c:\Users\Harith\Documents\GitHub\Is-poisonous\doc\build\main.aux)
+) (sections/future-works.tex) (sections/conclusion.tex) (sections/references.tex) [4 <./figures/classification.PNG>] (c:\Users\Harith\Documents\GitHub\Is-poisonous\doc\build\main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -505,9 +505,9 @@ Here is how much of TeX's memory you used:
  33548 multiletter control sequences out of 15000+600000
  559886 words of font info for 42 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,6n,79p,2173b,671s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,6n,79p,2173b,645s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Harith/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Harith/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Harith/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Harith/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Harith/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on c:\Users\Harith\Documents\GitHub\Is-poisonous\doc\build\main.pdf (4 pages, 172244 bytes).
+Output written on c:\Users\Harith\Documents\GitHub\Is-poisonous\doc\build\main.pdf (4 pages, 173473 bytes).
 PDF statistics:
  103 PDF objects out of 1000 (max. 8388607)
  17 named destinations out of 1000 (max. 500000)
