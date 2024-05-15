@@ -184,6 +184,12 @@ INPUT sections\related-work.tex
 INPUT .\sections\related-work.tex
 INPUT .\sections\related-work.tex
 INPUT sections\related-work.tex
+INPUT .\images\EfficientNet.PNG
+INPUT images\EfficientNet.PNG
+INPUT .\images\EfficientNet.PNG
+INPUT .\images\EfficientNet.PNG
+INPUT .\images\EfficientNet.PNG
+INPUT .\images\EfficientNet.PNG
 INPUT .\sections\methods.tex
 INPUT .\sections\methods.tex
 INPUT sections\methods.tex

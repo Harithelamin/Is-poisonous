@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1715776239.27512 "c:/Users/Harith/Documents/GitHub/Is-poisonous/doc/main.tex" "build/main.pdf" "main" 1715776240.75362 0
+["pdflatex"] 1715777432.1426 "c:/Users/Harith/Documents/GitHub/Is-poisonous/doc/main.tex" "build/main.pdf" "main" 1715777433.85632 0
   "C:/Users/Harith/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1715771832 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/Harith/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1714834363 24225558 c1edd9ab54b64c700b558b0ad38d0f95 ""
   "C:/Users/Harith/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx10.tfm" 1136765053 1328 c834bbb027764024c09d3d2bf908b5f0 ""
@@ -80,10 +80,11 @@
   "C:/Users/Harith/AppData/Local/Programs/MiKTeX/tex/latex/tools/tabularx.sty" 1700599895 7147 d45559f8a31b8c53ada0640516660003 ""
   "C:/Users/Harith/AppData/Local/Programs/MiKTeX/tex/latex/tools/xspace.sty" 1700599895 4545 9f5ea23ab1c91476c42749893f790666 ""
   "C:/Users/Harith/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "build/main.aux" 1715776240 1312 70002fe843ffe8e2dc044a66f34a3e82 "pdflatex"
-  "build/main.out" 1715776240 928 0bd1c047b53daf2928605ce058c47cb3 "pdflatex"
+  "build/main.aux" 1715777433 1312 4c234543cc15f2632706ad1c2e4899c3 "pdflatex"
+  "build/main.out" 1715777433 928 0bd1c047b53daf2928605ce058c47cb3 "pdflatex"
   "c:/Users/Harith/Documents/GitHub/Is-poisonous/doc/main.tex" 1715774005 1293 cbc543c468329f1587e84e029f612a96 ""
   "images/Confution_matrix.PNG" 1715770543 24270 1575da836ac959ca4e84a7287d57c66e ""
+  "images/EfficientNet.PNG" 1715776974 93345 e22de8e4914203bf3fa68c523e31d834 ""
   "images/Roc.PNG" 1715776105 92937 5bbbfac725912b009b77cb7ee036c93d ""
   "images/classification.PNG" 1715717934 68246 d4464e3b1bb268155a150039992a7a4a ""
   "images/learning_carve.PNG" 1715776139 84937 62d6805bd57d5cb295c89533a5b67510 ""
@@ -95,9 +96,9 @@
   "sections/future-works.tex" 1715731175 598 2e0a7619614a082abde9411c6fb2cc8f ""
   "sections/introduction.tex" 1715731177 2728 cd58cb534fbf597f3c4c10077010e1ab ""
   "sections/methods.tex" 1715731187 4527 1ebed06d96b3ec1668e240a36d85680f ""
-  "sections/references.tex" 1715731189 867 112e1bec6d3ad38f9d72b39438204b2c ""
-  "sections/related-work.tex" 1715731192 112 16d5050cd9f3b7ead692e764cbd1168e ""
-  "sections/results.tex" 1715776238 1881 899d68331129b676d2edef19c68d974f ""
+  "sections/references.tex" 1715777120 1371 e171a6531873d4c5809c9a55b3157597 ""
+  "sections/related-work.tex" 1715777431 474 61b8b89b0ff9bb78f3c6a7c19b737caa ""
+  "sections/results.tex" 1715776258 1881 899d68331129b676d2edef19c68d974f ""
   (generated)
   "build/main.aux"
   "build/main.log"
