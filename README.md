@@ -24,6 +24,9 @@ You will get acknowledge in following area:
 3. Convolutional Neural Network (CNN)
 4. EfficientNet B0
 
+# License
+This project is an open source and free for every one
+
 # Thank you
 
 
