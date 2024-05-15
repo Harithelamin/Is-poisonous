@@ -9,9 +9,10 @@
 \usepackage{graphicx}
 \usepackage{comment}
 \usepackage{import}
-\graphicspath{ {./images/} }
+\graphicspath{ {./figures/} }
 \usepackage[nottoc]{tocbibind}
 \setlength{\columnsep}{1cm}
+\usepackage[left=2.5cm,right=2.5cm,top=2cm,bottom=1.5cm]{geometry}
 \title{Improving of identifying whether mushrooms are poisonous or edible using EfficientNet B0}
 \author{ Anup Budhathoki, Viktoria Huszar, and Harith Elamin}
 \affil{Department of Computer Science, Oslo metropolitan university, Norway}
@@ -21,10 +22,12 @@
 \maketitle
 
 \begin{multicols}{2}
-\section{Introduction}
-\import{sections/}{Introduction}    
 \section{Abstract}
-\import{sections/}{Abstract}
+\import{sections/}{abstract}
+\section{Introduction}
+\import{sections/}{introduction}
+\section{Related Work}
+\import{sections}{related-work}
 \section{Methods}
 \import{sections/}{methods}
 \section{Experiment}
