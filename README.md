@@ -11,7 +11,7 @@ Identify whether the mushroom is poisonous or not using Deep Learning
 7. matplotlib
 
 # Usage
-identify whether the mushroom is poisonous or not
+identify whether the mushroom is poisonous or edible
 
 # Authors
 1. Anub 
