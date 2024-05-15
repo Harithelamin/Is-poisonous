@@ -1,2 +1,30 @@
-# Is-poisonous
-identify whether the mushroom is poisonous or not using Deep Learning
+# About Is-poisonous project
+Identify whether the mushroom is poisonous or not using Deep Learning
+
+# Installation
+1. Keagal Dataset
+2. tensorflow
+3. pandas
+4. keras
+5. sklearn
+6. efficientnet
+7. matplotlib
+
+# Usage
+identify whether the mushroom is poisonous or not
+
+# Authors
+1. Anub 
+2. Harith 
+
+# Acknowledgements
+You will get acknowledge in following area:
+1. Machine Learniing
+2. Deep Learning
+3. Convolutional Neural Network (CNN)
+4. EfficientNet B0
+
+# Thank you
+
+
+
