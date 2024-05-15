@@ -184,6 +184,12 @@ INPUT sections\related-work.tex
 INPUT .\sections\related-work.tex
 INPUT .\sections\related-work.tex
 INPUT sections\related-work.tex
+INPUT .\images\Cnn.PNG
+INPUT images\Cnn.PNG
+INPUT .\images\Cnn.PNG
+INPUT .\images\Cnn.PNG
+INPUT .\images\Cnn.PNG
+INPUT .\images\Cnn.PNG
 INPUT .\images\EfficientNet.PNG
 INPUT images\EfficientNet.PNG
 INPUT .\images\EfficientNet.PNG

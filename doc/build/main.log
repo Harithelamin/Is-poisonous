@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.5.4)  15 MAY 2024 14:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.5.4)  15 MAY 2024 16:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -507,18 +507,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--3
 ) (sections/introduction.tex [1
 
 {C:/Users/Harith/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]) (sections/related-work.tex
-<images/EfficientNet.PNG, id=53, 539.01375pt x 134.30174pt>
+<images/Cnn.PNG, id=53, 766.66425pt x 357.13425pt>
+File: images/Cnn.PNG Graphic file (type png)
+<use images/Cnn.PNG>
+Package pdftex.def Info: images/Cnn.PNG  used on input line 6.
+(pdftex.def)             Requested size: 236.01561pt x 109.9421pt.
+
+Overfull \hbox (14.22636pt too wide) in paragraph at lines 4--8
+ [] 
+ []
+
+<images/EfficientNet.PNG, id=55, 539.01375pt x 134.30174pt>
 File: images/EfficientNet.PNG Graphic file (type png)
 <use images/EfficientNet.PNG>
-Package pdftex.def Info: images/EfficientNet.PNG  used on input line 6.
+Package pdftex.def Info: images/EfficientNet.PNG  used on input line 14.
 (pdftex.def)             Requested size: 236.01561pt x 58.80605pt.
 
-Overfull \hbox (14.22636pt too wide) in paragraph at lines 6--8
+Overfull \hbox (14.22636pt too wide) in paragraph at lines 14--16
  [][] 
  []
 
-) (sections/methods.tex [2 <./images/EfficientNet.PNG>]) (sections/experiment.tex) (sections/discussion.tex) (sections/results.tex [3]
-<images/classification.PNG, id=64, 534.798pt x 107.80275pt>
+) (sections/methods.tex [2 <./images/Cnn.PNG> <./images/EfficientNet.PNG>]) (sections/experiment.tex) [3] (sections/discussion.tex) (sections/results.tex
+<images/classification.PNG, id=66, 534.798pt x 107.80275pt>
 File: images/classification.PNG Graphic file (type png)
 <use images/classification.PNG>
 Package pdftex.def Info: images/classification.PNG  used on input line 10.
@@ -528,7 +538,7 @@ Overfull \hbox (14.22636pt too wide) in paragraph at lines 10--12
  [][] 
  []
 
-<images/Confution_matrix.PNG, id=65, 352.31625pt x 282.45525pt>
+<images/Confution_matrix.PNG, id=67, 352.31625pt x 282.45525pt>
 File: images/Confution_matrix.PNG Graphic file (type png)
 <use images/Confution_matrix.PNG>
 Package pdftex.def Info: images/Confution_matrix.PNG  used on input line 16.
@@ -538,7 +548,7 @@ Overfull \hbox (14.22636pt too wide) in paragraph at lines 16--18
  [][] 
  []
 
-<images/learning_carve.PNG, id=66, 558.28575pt x 199.34476pt>
+<images/learning_carve.PNG, id=68, 558.28575pt x 199.34476pt>
 File: images/learning_carve.PNG Graphic file (type png)
 <use images/learning_carve.PNG>
 Package pdftex.def Info: images/learning_carve.PNG  used on input line 20.
@@ -548,7 +558,7 @@ Overfull \hbox (14.22636pt too wide) in paragraph at lines 20--22
  [][] 
  []
 
-<images/Roc.PNG, id=67, 552.8655pt x 277.63725pt>
+<images/Roc.PNG, id=69, 552.8655pt x 277.63725pt>
 File: images/Roc.PNG Graphic file (type png)
 <use images/Roc.PNG>
 Package pdftex.def Info: images/Roc.PNG  used on input line 24.
@@ -558,7 +568,12 @@ Overfull \hbox (14.22636pt too wide) in paragraph at lines 24--26
  [][] 
  []
 
-) (sections/future-works.tex) (sections/conclusion.tex) (sections/references.tex) [4 <./images/classification.PNG> <./images/Confution_matrix.PNG> <./images/learning_carve.PNG> <./images/Roc.PNG>] [5] (c:\Users\Harith\Documents\GitHub\Is-poisonous\doc\build\main.aux)
+) (sections/future-works.tex) (sections/conclusion.tex) (sections/references.tex)
+Overfull \hbox (25.98909pt too wide) in paragraph at lines 1--47
+ \OT1/cmr/m/n/10 https://www.happiestminds.com/insights/convolutional- 
+ []
+
+[4 <./images/classification.PNG> <./images/Confution_matrix.PNG> <./images/learning_carve.PNG> <./images/Roc.PNG>] [5] (c:\Users\Harith\Documents\GitHub\Is-poisonous\doc\build\main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -567,17 +582,17 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 0BD1C047B53DAF2928605CE058C47CB3;928.
  ) 
 Here is how much of TeX's memory you used:
- 12866 strings out of 474485
- 213352 string characters out of 5743263
+ 12876 strings out of 474485
+ 213527 string characters out of 5743263
  1945542 words of memory out of 5000000
- 34939 multiletter control sequences out of 15000+600000
+ 34948 multiletter control sequences out of 15000+600000
  559579 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,6n,79p,2173b,683s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Harith/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Harith/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Harith/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Harith/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Harith/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on c:\Users\Harith\Documents\GitHub\Is-poisonous\doc\build\main.pdf (5 pages, 425956 bytes).
+Output written on c:\Users\Harith\Documents\GitHub\Is-poisonous\doc\build\main.pdf (5 pages, 681146 bytes).
 PDF statistics:
- 107 PDF objects out of 1000 (max. 8388607)
+ 109 PDF objects out of 1000 (max. 8388607)
  16 named destinations out of 1000 (max. 500000)
- 106 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 111 words of extra memory for PDF output out of 10000 (max. 10000000)
 
