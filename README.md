@@ -1,7 +1,7 @@
 # About Is-poisonous project
 Identify whether the mushroom is poisonous or not using Deep Learning
 
-# Invironment
+# Environment
 1. Python
 2. Jupyter Notebook
 
