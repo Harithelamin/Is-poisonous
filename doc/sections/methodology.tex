@@ -1,0 +1,77 @@
+\section{Methodology}
+
+Our journey to develop a robust mushroom classification system began with a comprehensive search for a dataset that would serve as the foundation of our machine learning project. We conducted extensive research, leveraging academic repositories, online datasets, and domain-specific forums to identify a suitable corpus of mushroom images. This process involved a meticulous examination of each dataset's composition, quality, and relevance to our research objectives. 
+
+After thorough deliberation and consultation with domain experts, we settled on a dataset comprising approximately 100,000 images sourced from diverse sources such as online repositories, scientific publications, and citizen science initiatives. On closer examination, however, we encountered several challenges inherent in the selected data set. Among these challenges, was the presence of multiple classes, which include poisonous, edible, conditionally edible, and deadly mushrooms, which complicated the classification task.
+
+Furthermore, the dataset suffered from significant class imbalance, with the 'conditionally edible' class disproportionately represented, posing a potential bias in model training.
+
+To mitigate these issues and streamline our research focus, we made the strategic decision to narrow our scope to the binary classification of mushrooms as either 'poisonous' or 'edible'. This decision not only aligned with the primary objectives of our study but also facilitated a more balanced and focused analysis. With the dataset curated and class imbalance addressed through careful selection, our attention turned to preprocessing the images to uniformity and compatibility with our chosen machine learning model. 
+
+The dataset contains different species of poisonous and non poisonous class. There were numerous challanges like varying pattern, color, shape, background. Many of them looks anything else but not mushroom.
+
+
+\begin{figure*}[!ht]
+    \centering
+    \begin{subfigure}{0.23\textwidth} % Adjust the width as needed
+        \centering
+        \includegraphics[height=3cm, width=\linewidth]{images/mushroom1.png}
+        \caption{Mushroom 1} % Add caption for the first figure
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.23\textwidth} % Adjust the width as needed
+        \centering
+        \includegraphics[height=3cm, width=\linewidth]{images/mushroom2.png}
+        \caption{Mushroom 2} % Add caption for the second figure
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.23\textwidth} % Adjust the width as needed
+        \centering
+        \includegraphics[height=3cm, width=\linewidth]{images/mushroom3.png}
+        \caption{Mushroom 3} % Add caption for the third figure
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.23\textwidth} % Adjust the width as needed
+        \centering
+        \includegraphics[height=3cm, width=\linewidth]{images/mushroom4.png}
+        \caption{Mushroom 4} % Add caption for the fourth figure
+    \end{subfigure}
+    
+    \vspace{0.5cm} % Adjust vertical space between rows
+    
+    \begin{subfigure}{0.23\textwidth} % Adjust the width as needed
+        \centering
+        \includegraphics[height=3cm, width=\linewidth]{images/mushroom5.png}
+        \caption{Mushroom 5} % Add caption for the first figure in the second row
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.23\textwidth} % Adjust the width as needed
+        \centering
+        \includegraphics[height=3cm, width=\linewidth]{images/mushroom6.png}
+        \caption{Mushroom 6} % Add caption for the second figure in the second row
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.23\textwidth} % Adjust the width as needed
+        \centering
+        \includegraphics[height=3cm, width=\linewidth]{images/mushroom7.png}
+        \caption{Mushroom 7} % Add caption for the third figure in the second row
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.23\textwidth} % Adjust the width as needed
+        \centering
+        \includegraphics[height=3cm, width=\linewidth]{images/mushroom8.png}
+        \caption{Mushroom 8} % Add caption for the fourth figure in the second row
+    \end{subfigure}
+    
+    \caption{Different kinds of poisonous mushrooms} % Add a general caption for all figures
+\end{figure*}
+
+
+
+
+The initial inspection revealed inconsistencies in image sizes, necessitating resizing to a standardized format of 224x224 pixels. Additionally, we identified discrepancies in image formats, with some images in JPEG, JPG, and PNG formats. Of particular concern was the presence of PNG images, which introduced an additional alpha channel representing transparency, thereby deviating from the RGB color space used by the majority of the dataset. To rectify this discrepancy and ensure consistency in input data, we systematically converted all PNG images to the JPEG format, thus harmonizing the color channels across the entire dataset. Moreover, during the preprocessing stage, we encountered a subset of images that were corrupted or of insufficient quality for meaningful analysis. To maintain data integrity and prevent noise from influencing model performance, these corrupted images were systematically identified and removed from the dataset. This meticulous approach to data preprocessing was essential to ensure the reliability and robustness of our machine learning pipeline.
+
+After carefully preparing the dataset, our next crucial step was model selection and architecture design. Recognizing the importance of utilizing state-of-the-art techniques for image classification, we conducted a comprehensive survey of modern models and architectures. While we first assessed the ResNet model, which has shown success in various image classification tasks, our preliminary experiments revealed suboptimal performance on our mushroom classification task. In response, we shifted our focus to EfficientNetB0, a recent and highly efficient convolutional neural network (CNN) architecture known for its superior performance on image classification.
+
+
+With the EfficientNetB0 architecture selected as our backbone, we proceeded to fine-tune the model using transfer learning—a technique that leverages pre-trained models on large-scale datasets to accelerate learning on domain-specific tasks with limited labeled data. By transferring knowledge from the pre-trained EfficientNetB0 model, which was trained on ImageNet—a vast dataset comprising millions of labeled images spanning thousands of classes—we aimed to expedite the training process and enhance the model's ability to generalize across diverse mushroom images.

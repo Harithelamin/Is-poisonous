@@ -1,46 +1,243 @@
-\documentclass{article}
-\usepackage{blindtext}
-\usepackage{authblk}
-\usepackage{multicol}
+\documentclass[12pt, a4paper, oneside, openright]{book}
+%\documentclass[12pt,a4paper,english]{article}
 \usepackage[english]{babel}
-\usepackage{hyperref}
-\usepackage{amsmath, xparse}
-\usepackage{tabularx}
-\usepackage{caption}
-\usepackage{comment}
-\usepackage{import}
-\usepackage[nottoc]{tocbibind}
-\usepackage{float}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+\usepackage[dvips]{graphicx}
+\usepackage{xcolor}
+\usepackage{times}
+\usepackage{pdfpages}
+\usepackage{appendix}
+\usepackage{titlesec}
+\usepackage{lscape}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{braket}
+\usepackage[
+breaklinks=true,colorlinks=true,
+linkcolor=blue,urlcolor=blue,citecolor=blue,% PDF VIEW
+%linkcolor=black,urlcolor=black,citecolor=black,% PRINT
+bookmarks=true,bookmarksopenlevel=2]{hyperref}
+\usepackage{geometry}
+% PDF VIEW
+
+%\usepackage[notocbib]{naturemag}
+%\graphicspath{ {./images/} }
+%\usepackage[
+ % breaklinks=true,colorlinks=true,
+  %linkcolor=blue,urlcolor=blue,citecolor=blue, PDF VIEW
+  %linkcolor=black,urlcolor=black,citecolor=black, PRINT
+  %bookmarks=true,bookmarksopenlevel=2]%{hyperref}
+%\OnehalfSpacing
+\linespread{1.0}
+% %%% CHAPTER'S STYLE
+% \chapterstyle{bianchi}
+% % \chapterstyle{ger}
+% % \chapterstyle{madsen}
+% % \chapterstyle{ell}
+%%% STYLE OF SECTIONS, SUBSECTIONS, AND SUBSUBSECTIONS
+%\setsecheadstyle{\large\bfseries\sffamily\raggedright}
+%\setsubsecheadstyle{\large\bfseries\sffamily\raggedright}
+%\setsubsubsecheadstyle{\bfseries\sffamily\raggedright}
+%\pagestyle{plain}
+ %\renewcommand{\chaptermark}[1]{\markboth{{\sffamily\thechapter\ #1}}{}}
+ %\makepagestyle{plain}
+ %\makeevenfoot{plain}{\thepage}{}{}
+ %\makeoddfoot{plain}{}{}{\thepage}
+ %\makeevenhead{plain}{}{\leftmark}{}
+ %\makeoddhead{plain}{}{\leftmark}{}
+%\maxsecnumdepth{subsection} % chapters, sections, and subsections are %numbered
+%\maxtocdepth{subsection} % chapters, sections, and subsections are in the %Table of Contents
+\makeatletter
+\newcommand\footnoteref[1]{\protected@xdef\@thefnmark{\ref{#1}}\@footnotemark}
+\makeatother
+
 \usepackage{graphicx}
-\graphicspath{{images/}}
-\setlength{\columnsep}{1cm}
-\usepackage[left=2.5cm,right=2.5cm,top=2cm,bottom=1.5cm]{geometry}
-\title{How to improve the detection of whether mushrooms are poisonous or edible with EfficientNet B0}
-\author{ Anup Budhathoki, Viktoria Huszar, and Harith Elamin}
-\affil{Department of Computer Science, Oslo metropolitan university, Norway}
-\date{May 2024}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{mhchem}
+\usepackage{fullpage}
+\usepackage{xspace}
+\usepackage{epigraph}
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{framed}
+\usepackage{calc}
+\usepackage{fancyhdr, fancyvrb}
+\pagestyle{fancy}
+\usepackage{tcolorbox}
+\usepackage{appendix}
+\usepackage{makecell}
+\usepackage{float}
+\usepackage{multirow}
 
+
+\usepackage[left=2.5cm, right=2.5cm, top=2.5cm,includefoot, bottom=2.5cm,showframe]{geometry}
+\renewcommand{\headrulewidth}{1pt}
+\fancyhead[L,RO]{\textbf{\thepage}}
+\fancyhead[LO]{\textbf{\rightmark}}
+%\fancyhead[RE]{\textbf{\leftmark}}
+\fancyfoot[C,CO]{\empty}
+
+\newcommand{\mytextformat}{\itshape\epigraphsize}
+\newenvironment{mytext}{\mytextformat}{}
+\newenvironment{mysource}{\scshape\hfill}{}
+\renewcommand{\textflush}{mytext} 
+\renewcommand{\sourceflush}{mysource}
+\usepackage{xspace}
+\usepackage[paper=portrait,pagesize]{typearea}
+
+
+
+
+\begin{comment}
+\fancyhead[LE,RO]{\textbf{\thepage}}
+\fancyhead[LO]{\textbf{\rightmark}}
+\fancyhead[RE]{\textbf{\leftmark}}
+\fancyfoot[CE,CO]{\empty}
+\end{comment}
+
+\usepackage{multicol}
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor={blue},citecolor={red},urlcolor={cyan}}
+\usepackage[backend=biber,style=numeric,citestyle=nature]
+
+
+
+\lstset{language=Python}
+
+%New colors defined below
+\definecolor{codegreen}{rgb}{0.5,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\renewcommand{\lstlistingname}{Code}% Listing -> Algorithm
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{backcolour},   commentstyle=\color{codegreen},
+  keywordstyle=\color{magenta},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=false,         
+  breaklines=true,                 
+  captionpos=b,                    
+  keepspaces=true,                 
+  numbers=left,                    
+  numbersep=5pt,                  
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=false,                  
+  tabsize=2}
+%"mystyle" code listing set
+\lstset{style=mystyle}
+
+
+
+
+\lstset{style=mystyle}
+
+
+
+\usepackage{xcolor}
+\newcommand{\quotebox}[1]{\begin{center}\fcolorbox{white}{blue!15!gray!15}{\begin{minipage}{0.9\linewidth}\vspace{10pt}\center\begin{minipage}{0.8\linewidth}{\space\Huge``}{#1}{\hspace{1.5em}\break\null\Huge\hfill''}\end{minipage}\smallbreak\end{minipage}}\end{center}}
+
+
+
+
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
 \begin{document}
-\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{multicols}{2}
-\section{Abstract}
-\import{sections/}{abstract}
-\section{Introduction}
-\import{sections/}{introduction}
-\section{Related Work}
-\import{sections}{related-work}
-\section{Methods}
-\import{sections/}{methods}
-\section{Experiment}
-\import{sections/}{experiment}
-\section{Results, and discussion}
-\import{sections/}{results}
-\section{Future works}
-\import{sections/}{future-works}
-\section{Conclusion}
-\import{sections/}{conclusion}
-\section{References}
-\import{sections/}{references}
-\end{multicols}
+%%%% TITLE PAGE
+\begin{titlepage}
+\begin{center}
+\textbf{\LARGE OsloMet- Oslo Metropolitan University}\\[0.5cm] 
+\textbf{\Large Department of Computer Science}\\[0.2cm]
+\textbf{\Large Oslo Norway }\\[0.8cm]
+\textbf{\Large ACIT4630-1 24V Advanced Machine Learning and Deep Learning}\\[0.2cm]
+\vspace{20pt}
+
+
+\begin{center}
+\textbf{May 2024}\\
+\end{center}
+\vspace{20pt}
+
+\par
+\vspace{20pt}
+\textbf{\Large \textcolor{blue}{Optimizing Mushroom Classification: Leveraging Transfer Learning with EfficientNetB0 Architecture}}\\
+\vspace{25pt}
+\vspace{1pt}
+\textbf{{ Candidate number 107, 108 , 119 }}\\[0.1cm]
+\vspace{25pt}
+
+
+\end{center}
+
+\par
+\vfill
+\end{titlepage}
+
+
+%%% TABLE OF CONTENTS
+\newpage
+\tableofcontents
+%  %End Sumário
+\include{sections/abstract}
+\include{sections/introduction}
+\include{sections/methodology}
+\include{sections/proposed architecture}
+\include{sections/experiment}
+\include{sections/results}
+\include{sections/discussion}
+\include{sections/conclusion}
+\include{sections/future-works}
+\appendix
+
+\include{appendix01}
+
+
+
+%%% APENDICES HERE
+
+% \include{app11_research_paper_draft}
+
+\let\section\chapter
+
+
+\bibliographystyle{naturemag}
+
+\bibliography{references}
+
+% \renewcommand{\bibname}{Bibliography}
 \end{document}
