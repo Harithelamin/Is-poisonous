@@ -10,6 +10,10 @@ Identify whether the mushroom is poisonous or not using Deep Learning
 6. efficientnet
 7. matplotlib
 
+# Dataste 
+# https://www.kaggle.com/datasets/zedsden/mushroom-classification-dataset
+
+
 # Usage
 identify whether the mushroom is poisonous or edible
 
