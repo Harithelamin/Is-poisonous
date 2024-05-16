@@ -1,0 +1,262 @@
+\lstnewenvironment{python}[1][]{
+    \lstset{
+        language=Python,
+        basicstyle=\small\ttfamily,
+        keywordstyle=\color{blue}\bfseries,
+        stringstyle=\color{red},
+        commentstyle=\color{green!70!black},
+        numbers=left,
+        numberstyle=\tiny,
+        numbersep=5pt,
+        backgroundcolor=\color{gray!10},
+        showspaces=false,
+        showstringspaces=false,
+        frame=single,
+        captionpos=b,
+        breaklines=true,
+        breakatwhitespace=true,
+        escapeinside={(*@}{@*)},  % If you want to add LaTeX within your code
+        #1
+    }
+}{}
+
+\begin{python}[caption={Python code for training the model}]
+github link: https://github.com/Harithelamin/Is-poisonous
+
+The code used for training the model:
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import tensorflow as tf
+from tensorflow.keras import layers, models, optimizers
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.callbacks import EarlyStopping
+from efficientnet.tfkeras import EfficientNetB0
+import matplotlib.pyplot as plt
+from sklearn.metrics import classification_report, confusion_matrix
+from sklearn.metrics import roc_curve, auc
+
+
+
+np.random.seed(42)
+tf.random.set_seed(42)
+
+# Define paths to the training, validation, and test directories
+train_dir = r'E:\Amazon\ml\original splitted\train'
+test_dir = r'E:\Amazon\ml\original splitted\test'
+val_dir = r'E:\Amazon\ml\original splitted\val'
+
+
+# Define parameters for data generators
+batch_size = 128
+target_size = (224, 224)  # Target size for input images
+
+# Create ImageDataGenerator instances with data augmentation and normalization for training and validation
+train_datagen = ImageDataGenerator(
+    rescale=1./255,  # Normalize pixel values to [0,1]
+    rotation_range=20,
+    width_shift_range=0.2,
+    height_shift_range=0.2,
+    shear_range=0.2,
+    zoom_range=0.2,
+    horizontal_flip=True
+)
+
+val_datagen = ImageDataGenerator(rescale=1./255)  # Only rescale for validation data
+
+# Create train_generator and val_generator
+train_generator = train_datagen.flow_from_directory(
+    train_dir,
+    target_size=target_size,
+    batch_size=batch_size,
+    class_mode='binary',  # Assuming binary classification
+    shuffle=True
+)
+
+val_generator = val_datagen.flow_from_directory(
+    val_dir,
+    target_size=target_size,
+    batch_size=batch_size,
+    class_mode='binary',
+    shuffle=False
+)
+
+# Create ImageDataGenerator instance for test data
+test_datagen = ImageDataGenerator(rescale=1./255)  # Only rescale for test data
+
+# Create test_generator
+test_generator = test_datagen.flow_from_directory(
+    test_dir,
+    target_size=target_size,
+    batch_size=batch_size,
+    class_mode='binary',
+    shuffle=False
+)
+
+# Load pre-trained EfficientNetB0 model without top layers
+base_model = EfficientNetB0(weights='imagenet', include_top=False, input_shape=(224, 224, 3))
+
+# Freeze the layers of the pre-trained model except the last few convolutional layers
+for layer in base_model.layers[:-5]:  # Adjust the number of layers to freeze as per your requirement
+    layer.trainable = False
+
+# Add custom dense layers
+x = base_model.output
+x = layers.GlobalAveragePooling2D()(x)
+x = layers.Dense(256, activation='relu')(x)
+x = layers.Dropout(0.8)(x)
+predictions = layers.Dense(1, activation='sigmoid')(x)  # Binary classification, so using sigmoid activation
+
+# Combine base model with custom top layers
+model = models.Model(inputs=base_model.input, outputs=predictions)
+
+# Specify the learning rate
+learning_rate = 0.001
+
+# Compile the model with custom learning rate
+optimizer = Adam(learning_rate=learning_rate)
+model.compile(optimizer=optimizer, loss='binary_crossentropy', metrics=['accuracy'])
+
+# Compile the model
+model.compile(optimizer=optimizer, loss='binary_crossentropy', metrics=['accuracy'])
+# Define early stopping callback
+early_stopping = EarlyStopping(monitor='val_accuracy', patience=10)
+
+# Train the model with early stopping
+history = model.fit(
+    train_generator,
+    steps_per_epoch=len(train_generator),
+    epochs=70,
+    validation_data=val_generator,
+    validation_steps=len(val_generator),
+    callbacks=[early_stopping]
+)
+
+# Plot training history
+plt.plot(history.history['accuracy'], label='accuracy')
+plt.plot(history.history['val_accuracy'], label='val_accuracy')
+plt.xlabel('Epoch')
+plt.ylabel('Accuracy')
+plt.legend()
+plt.show()
+
+# Plot training history for loss
+plt.plot(history.history['loss'], label='loss')
+plt.plot(history.history['val_loss'], label='val_loss')
+plt.xlabel('Epoch')
+plt.ylabel('Loss')
+plt.legend()
+plt.show()
+
+# Predict on test set
+print("Predicting on test set...")
+test_pred_probs = model.predict(test_generator)
+test_preds = (test_pred_probs > 0.5).astype(int)
+
+
+# Confusion matrix for test set
+cm_test = confusion_matrix(test_generator.classes, test_preds)
+plt.figure(figsize=(8, 6))
+sns.heatmap(cm_test, annot=True, fmt='d', cmap='Blues', cbar=False)
+plt.xlabel('Predicted')
+plt.ylabel('Actual')
+plt.title('Confusion Matrix - Test Set')
+plt.show()
+
+# Evaluate the model on validation set
+print("Evaluating the model on validation set...")
+val_loss, val_accuracy = model.evaluate(val_generator)
+print(f"Validation Loss: {val_loss:.4f}, Validation Accuracy: {val_accuracy:.4f}")
+
+
+# Generate classification report
+class_report = classification_report(test_generator.classes, test_preds, target_names=['Class 0', 'Class 1'], output_dict=True)
+
+# Convert classification report to DataFrame
+report_df = pd.DataFrame(class_report).transpose()
+
+# Visualize classification report as a table with adjusted font size and 2 decimal places
+plt.figure(figsize=(10, 6))  # Adjust figure size as needed
+plt.axis('off')  # Turn off axis
+table = plt.table(cellText=report_df.round(2).values,  # Round to 2 decimal places
+                  rowLabels=report_df.index,
+                  colLabels=report_df.columns,
+                  cellLoc='center',
+                  loc='center',
+                  colWidths=[0.2]*len(report_df.columns),
+                  bbox=[0, 0, 1, 1])
+
+# Adjust font size
+table.auto_set_font_size(False)
+table.set_fontsize(10)  # Adjust font size as needed
+
+plt.title('Classification Report')
+
+plt.tight_layout()
+plt.show()
+
+# Compute ROC curve
+fpr, tpr, thresholds = roc_curve(test_generator.classes, test_pred_probs)
+roc_auc = auc(fpr, tpr)
+
+# Plot ROC curve
+plt.figure(figsize=(8, 6))
+plt.plot(fpr, tpr, color='blue', lw=2, label='ROC curve (AUC = %0.2f)' % roc_auc)
+plt.plot([0, 1], [0, 1], color='gray', linestyle='--', label='Random')
+plt.xlabel('False Positive Rate')
+plt.ylabel('True Positive Rate')
+plt.title('Receiver Operating Characteristic (ROC) Curve')
+plt.legend(loc='lower right')
+plt.show()
+
+# Choose an image from the validation set
+img = val_generator[0][0][0]  # Assuming batch size is 128 and you want to visualize the first image
+true_label = val_generator[0][1][0]  # Assuming batch size is 128 and you want to get the true label of the first image
+
+# Make a prediction on the image
+prediction = model.predict(np.expand_dims(img, axis=0))
+predicted_class_index = np.argmax(prediction)
+predicted_class_label = class_labels[predicted_class_index]  # Assuming class_labels is defined
+
+# Define function to compute activation map for a specific layer and filter
+def compute_activation_map(model, img, layer_name, filter_index):
+    # Get the specified layer by name
+    layer = model.get_layer(layer_name)
+    # Create a submodel that outputs the activation of the specified layer
+    submodel = tf.keras.models.Model(inputs=model.inputs, outputs=layer.output)
+    # Compute the activations for the input image
+    activations = submodel.predict(np.expand_dims(img, axis=0))
+    # Extract the activations for the specified filter
+    activations_filter = activations[:, :, :, filter_index]
+    # Normalize the activations
+    activations_filter -= activations_filter.mean()
+    activations_filter /= activations_filter.std() + 1e-5
+    return activations_filter[0]
+
+# Define function to plot activations for a specific layer and filter
+def plot_activations(activation_map, layer_name, filter_index):
+    plt.imshow(activation_map, cmap='viridis')
+    plt.title(f'Layer: {layer_name}, Filter: {filter_index}')
+    plt.colorbar()
+    plt.show()
+    
+# Define filters to visualize: 3 filters from first layer, 3 from 40th, 3 from last layer
+filters_to_visualize = [('block1a_activation', i) for i in range(3)] + \
+                       [('block6c_activation', i) for i in range(3)] + \
+                       [('top_activation', i) for i in range(3)]
+
+# Iterate over filters and visualize activations
+for layer_name, filter_index in filters_to_visualize:
+    # Compute the activation map for the chosen layer and filter
+    activation_map = compute_activation_map(model, img, layer_name, filter_index)
+    # Plot the activation map
+    plot_activations(activation_map, layer_name, filter_index)
+
+# Display the true class label and the predicted class label
+print("True class label:", true_label)
+print("Predicted class label:", predicted_class_label)
+
+\end{python}
+
+
