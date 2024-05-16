@@ -33,7 +33,7 @@ You will get acknowledge in following area:
 4. EfficientNet B0
 
 # License
-This project is an open source and free for every one
+This project is an open source and free for everyone
 
 # Thank you
 
