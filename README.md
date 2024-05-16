@@ -1,6 +1,10 @@
 # About Is-poisonous project
 Identify whether the mushroom is poisonous or not using Deep Learning
 
+# Invironment
+1. Python
+2. Jupyter Notebook
+
 # Installation
 1. Keagal Dataset
 2. tensorflow
@@ -15,7 +19,7 @@ Identify whether the mushroom is poisonous or not using Deep Learning
 
 
 # Usage
-identify whether the mushroom is poisonous or edible
+Identify whether the mushroom is poisonous or edible
 
 # Authors
 1. Anub 
